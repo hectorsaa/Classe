@@ -34,24 +34,27 @@ if contrasenya== 101 or contrasenya== 102:
             break
         
         elif opcio==2:
-            while True:
-                opcio_papers=str(input("Quin tipues de paper vols comprar (A2, A3, A4, A5, A6) x-tornar a la pàgina anterior: " ))
+            if diners<=100:
+                print("No hi han suficients diners a la empresa")
+                break
+            
+            else:
+                while True:
+                    opcio_papers=str(input("Quin tipues de paper vols comprar (A2, A3, A4, A5, A6) x-tornar a la pàgina anterior: " ))
                 
-                if opcio_papers=="A2":
-                    if diners<=100:
-                        print("No hi han suficients diners a la empresa") 
-                        break
-                    else:
-                        print("Un paquet de 500ut de A2 costa 18,95€")
+                    if opcio_papers=="A2":
+                        print("Un paquet de A2 de 500ut costa 18,95€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=unitats_paper*18.95
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {preu.}"))
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
                         
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
                             diners=diners-preu
-                            A2=A2-unitats_paper
+                            A2=A2+unitats_paper
+                            print(diners)
+                            print(A2)
                             break
                         elif confirmar_compra=="no":
                             print("Compra cancelada")
@@ -89,12 +92,12 @@ if contrasenya== 101 or contrasenya== 102:
                     print(f"Els clients són{clients_compra}" )
                 if opcio_clients==4:
                     print("Tornant a la pàgina anterior")
-                    time.slepp(3)
+                    time.sleep(3)
                     break
             
         elif opcio==4:
-            print("tancant programa ...")
-            time.slepp(4)
+            print("Tancant programa ...")
+            time.sleep(4)
             break
     
 
