@@ -34,3 +34,4 @@ def edifici(habitacions,pisos):
 
 edifici(3,5)
 turtle.done()
+edifici(2,2)
