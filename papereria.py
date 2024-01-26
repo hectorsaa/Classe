@@ -33,17 +33,38 @@ if contrasenya== 101 or contrasenya== 102:
                 opcio_papers=str(input("Quin tipues de papeers vols comprar (A2, A3, A4, A5, A6) " ))
                 
         
-        
-        
         elif opcio ==3:
-            print(f"Els clients són{clients_compra}" )
+            while True:
+                opcio_clients=int(input("""Que vols fer:
+                                        1-veure clients
+                                        2-afegir clients
+                                        3-eliminar clients 
+                                        4-tornar 
+                                        """))
+                if opcio_clients==1:
+                    print(f"Els clients són{clients_compra}" )
+                
+                if opcio_clients==2:
+                    afegir_client=str(input("Nom del client que vols afegir: "))
+                    clients_compra.append(afegir_client)
+                    print(f"Els clients són{clients_compra}" )
+                
+                if opcio_clients==3:
+                    eliminar_client=str(input("Nom del client que vols eliminar: "))
+                    clients_compra.remove(eliminar_client)
+                    print(f"Els clients són{clients_compra}" )
+                if opcio_clients==4:
+                    print("Tornant a la pàgina anterior")
+                    time.slepp(3)
+                    break
             
         elif opcio==4:
             print("tancant programa ...")
             time.slepp(4)
+            break
     
 
-if contrasenya== 103 or 104 or 105:
+elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
     print("""Benvingut venedor!! 
     Carregant programa...""")
     time.sleep(3)  
@@ -68,9 +89,30 @@ if contrasenya== 103 or 104 or 105:
         
         
         elif opcio ==3:
-            print(f"Els clients són{clients_venta}" )
+            while True:
+                opcio_clients=int(input("""Que vols fer:
+                                        1-veure clients
+                                        2-afegir clients
+                                        3-eliminar clients 
+                                        4-tornar """))
+                if opcio_clients==1:
+                    print(f"Els clients són{clients_venta}" )
+                
+                elif opcio_clients==2:
+                    afegir_client=str(input("Nom del client que vols afegir: "))
+                    clients_venta.append(afegir_client)
+                    print(f"Els clients són{clients_venta}" )
+                
+                elif opcio_clients==3:
+                    eliminar_client=str(input("Nom del client que vols eliminar: "))
+                    clients_venta.remove(eliminar_client)
+                    print(f"Els clients són{clients_venta}" )
+                elif opcio==4:
+                    print("Tornant a la pàgina anterior")
+                    time.sleep(3)
+                    break
             
-        elif opcio==6:
+        if opcio==6:
             print("tancant programa ...")
             time.slepp(4)
 
