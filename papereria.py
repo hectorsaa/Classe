@@ -1,11 +1,8 @@
 import time
 
-tipo_papel=['A2','A3','A4','A5','A6']
 clients_compra=['paper corporation','WestRock','UPM']
 clients_venta=['corte ingles','La Sol papereria','Amazon']
 zonas=['A','B','C']
-preu_venda=['24.15','12.25','9,45','8.1','7,35']
-preu_compra=['18.95','11.34','7.98','7,13','6,40']
 
 contrasenya=int(input("introdueix el teu codi "))
 
@@ -48,22 +45,73 @@ if contrasenya== 101 or contrasenya== 102:
                         preu=unitats_paper*18.95
                         confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
                         
-                        
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
                             diners=diners-preu
                             A2=A2+unitats_paper
-                            print(diners)
-                            print(A2)
                             break
                         elif confirmar_compra=="no":
-                            print("Compra cancelada")
+                            print("Compra cancel·lada")
                             break
 
-
-                if opcio_papers=="A3":
-                    if diners<=100:
-                        print("No hi ha suficien diners a la empresa")
+                    if opcio_papers=="A3":
+                        print("Un paquet de A3 de 500ut costa 11,34€")
+                        unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
+                        preu=unitats_paper*11.34
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        
+                        if confirmar_compra=="si":
+                            print("Compra realitzada amb èxit")
+                            diners=diners-preu
+                            A3=A3+unitats_paper
+                            break
+                        elif confirmar_compra=="no":
+                            print("Compra cancel·lada")
+                            break
+                    
+                    if opcio_papers=="A4":
+                        print("Un paquet de A4 de 500ut costa 7,98€")
+                        unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
+                        preu=unitats_paper*7.98
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        
+                        if confirmar_compra=="si":
+                            print("Compra realitzada amb èxit")
+                            diners=diners-preu
+                            A4=A4+unitats_paper
+                            break
+                        elif confirmar_compra=="no":
+                            print("Compra cancel·lada")
+                            break
+                
+                if opcio_papers=="A5":
+                        print("Un paquet de A5 de 500ut costa 7,13€")
+                        unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
+                        preu=unitats_paper*7.13
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        
+                        if confirmar_compra=="si":
+                            print("Compra realitzada amb èxit")
+                            diners=diners-preu
+                            A5=A5+unitats_paper
+                            break
+                        elif confirmar_compra=="no":
+                            print("Compra cancel·lada")
+                            break
+                if opcio_papers=="A6":
+                        print("Un paquet de A6 de 500ut costa 6,45€")
+                        unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
+                        preu=unitats_paper*6,45
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        
+                        if confirmar_compra=="si":
+                            print("Compra realitzada amb èxit")
+                            diners=diners-preu
+                            A6=A6+unitats_paper                          
+                            break
+                        elif confirmar_compra=="no":
+                            print("Compra cancel·lada")
+                            break
 
                 if opcio_papers=="x":
                     print("Tornant a l'inici")
@@ -120,13 +168,24 @@ elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
         
         elif opcio==2:
             while True:
-                opcio_papers=str(input("Quin tipues de papeers vols vendre (A2, A3, A4, A5, A6) " ))
+                opcio_papers=str(input("Quin tipues de papeers vols vendre (A2, A3, A4, A5, A6)   x-Tornar a la pàgina anterior " ))
                 
-                    
-        
-        
-        
-        if opcio==3:
+                if opcio_papers=="A2":
+                    if A2<=10:
+                        print("No hi ha suficient estoc")
+                        break
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de A2 que vols vendre: "))
+                        benefici=quantitat_vendre*24.15
+                        confirmar_venda=str(input("confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+benefici
+                            A2=A2-quantitat_vendre
+                            break
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+        elif opcio==3:
             while True:
                 opcio_clients=int(input("""Que vols fer:
                                         1-veure clients
@@ -150,9 +209,10 @@ elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
                     time.sleep(3)
                     break
             
-        if opcio==6:
+        elif opcio==6:
             print("tancant programa ...")
             time.slepp(4)
+            break
 
 else:
     print("codi incorrecte. Torna a provar")
