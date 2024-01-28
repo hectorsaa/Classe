@@ -4,7 +4,7 @@ clients_compra=['paper corporation','WestRock','UPM']
 clients_venta=['corte ingles','La Sol papereria','Amazon']
 zonas=['A','B','C']
 
-contrasenya=int(input("introdueix el teu codi "))
+codi=int(input("introdueix el teu codi "))
 
 A2=50
 A3=50
@@ -15,16 +15,16 @@ A6=50
 diners=1000
 
 
-if contrasenya== 101 or contrasenya== 102:
+if codi== 101 or codi== 102:
     print("""Benvingut comprador!! 
     Carregant programa...""")
     time.sleep(3)
     while True:
         opcio=int(input("""Que vol fer?
-                        1-consultar diners de la empresa
-                        2-comprar 
-                        3-consultar clients
-                        4-tancar programa
+                        1-Consultar diners de la empresa
+                        2-Comprar 
+                        3-Consultar clients
+                        4-Tancar programa
                         """))
         if opcio==1:
             print(f"La empresa té {diners}€")
@@ -149,18 +149,18 @@ if contrasenya== 101 or contrasenya== 102:
             break
     
 
-elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
+elif codi== 103 or codi==104 or codi==105:
     print("""Benvingut venedor!! 
     Carregant programa...""")
     time.sleep(3)  
     while True:
         opcio=int(input("""Que vol fer?
-                        1-consultar paquets de paper en el magatzem 
-                        2-vendre 
-                        3-consultar clients
-                        4-peper venut
-                        5-volum vendas
-                        6-tancar programa
+                        1-Consultar paquets de paper en el magatzem 
+                        2-Vendre 
+                        3-Consultar clients
+                        4-Paper venut
+                        5-Volum vendas
+                        6-Tancar programa
                         """))
         if opcio==1:
             print(f"La empresa té {diners}€")
@@ -177,7 +177,7 @@ elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
                     else:
                         quantitat_vendre=int(input("Quantitat de paquets de A2 que vols vendre: "))
                         benefici=quantitat_vendre*24.15
-                        confirmar_venda=str(input("confirma la venda (si/no): "))
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
                         if confirmar_venda=="si":
                             print("Venda realitzada amb èxit")
                             diners=diners+benefici
@@ -188,10 +188,10 @@ elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
         elif opcio==3:
             while True:
                 opcio_clients=int(input("""Que vols fer:
-                                        1-veure clients
-                                        2-afegir clients
-                                        3-eliminar clients 
-                                        4-tornar """))
+                                        1-Veure clients
+                                        2-Afegir clients
+                                        3-Eliminar clients 
+                                        4-Tornar """))
                 if opcio_clients==1:
                     print(f"Els clients són{clients_venta}" )
                 
@@ -210,9 +210,9 @@ elif contrasenya== 103 or contrasenya==104 or contrasenya==105:
                     break
             
         elif opcio==6:
-            print("tancant programa ...")
+            print("Tancant programa ...")
             time.slepp(4)
             break
 
 else:
-    print("codi incorrecte. Torna a provar")
+    print("Codi incorrecte. Torna a provar")
