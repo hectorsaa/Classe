@@ -54,22 +54,31 @@ if codi== 101 or codi== 102:
                             print("Compra cancel·lada")
                             break
 
-                    if opcio_papers=="A3":
+                    elif opcio_papers=="A3":
                         print("Un paquet de A3 de 500ut costa 11,34€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=unitats_paper*11.34
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        preu=11.34
+                        preu_caixa=58.45
+                        caixa=unitats_paper//5                        
+                        caixa1=caixa*preu_caixa
+                        preu_individual=(unitats_paper-(caixa*5))*preu
+                        preu_total=preu_individual+caixa1
+                        
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)} "))
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
-                            diners=diners-preu
+                            diners=diners-preu_total
                             A3=A3+unitats_paper
+                            print(A3)
+                            print(diners)
                             break
+
                         elif confirmar_compra=="no":
                             print("Compra cancel·lada")
                             break
                     
-                    if opcio_papers=="A4":
+                    elif opcio_papers=="A4":
                         print("Un paquet de A4 de 500ut costa 7,98€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=unitats_paper*7.98
@@ -84,7 +93,7 @@ if codi== 101 or codi== 102:
                             print("Compra cancel·lada")
                             break
                 
-                if opcio_papers=="A5":
+                    elif opcio_papers=="A5":
                         print("Un paquet de A5 de 500ut costa 7,13€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=unitats_paper*7.13
@@ -98,12 +107,11 @@ if codi== 101 or codi== 102:
                         elif confirmar_compra=="no":
                             print("Compra cancel·lada")
                             break
-                if opcio_papers=="A6":
+                    elif opcio_papers=="A6":
                         print("Un paquet de A6 de 500ut costa 6,45€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=unitats_paper*6,45
                         confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
-                        
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
                             diners=diners-preu
@@ -113,10 +121,10 @@ if codi== 101 or codi== 102:
                             print("Compra cancel·lada")
                             break
 
-                if opcio_papers=="x":
-                    print("Tornant a l'inici")
-                    time.sleep(3)
-                    break
+                    elif opcio_papers=="x":
+                        print("Tornant a l'inici")
+                        time.sleep(3)
+                        break
         
         elif opcio ==3:
             while True:
