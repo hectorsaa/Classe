@@ -4,18 +4,17 @@ clients_compra=['paper corporation','WestRock','UPM']
 clients_venta=['corte ingles','La Sol papereria','Amazon']
 zonas=['A','B','C']
 
-codi=int(input("introdueix el teu codi "))
+usuari=str(input("Introdueix nom d'usuari: "))
+codi=int(input("Introdueix el teu codi: "))
 
 A2=50
 A3=50
 A4=50
 A5=50
 A6=50
-
 diners=1000
 
-
-if codi== 101 or codi== 102:
+if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Martin":
     print("""Benvingut comprador!! 
     Carregant programa...""")
     time.sleep(3)
@@ -42,12 +41,15 @@ if codi== 101 or codi== 102:
                     if opcio_papers=="A2":
                         print("Un paquet de A2 de 500ut costa 18,95€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=unitats_paper*18.95
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        descompte=unitats_paper//4
+                        descompte1=(7*descompte)/100
+                        preunodescompte=(unitats_paper-(descompte*4))*18.95
+                        preu_total=preunodescompte+descompte1
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
-                            diners=diners-preu
+                            diners=diners-preu_total
                             A2=A2+unitats_paper
                             break
                         elif confirmar_compra=="no":
@@ -57,21 +59,19 @@ if codi== 101 or codi== 102:
                     elif opcio_papers=="A3":
                         print("Un paquet de A3 de 500ut costa 11,34€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=11.34
-                        preu_caixa=58.45
+                        preu=7.98
+                        preu_caixa=37,65
                         caixa=unitats_paper//5                        
                         caixa1=caixa*preu_caixa
                         preu_individual=(unitats_paper-(caixa*5))*preu
                         preu_total=preu_individual+caixa1
                         
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)} "))
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
                             diners=diners-preu_total
                             A3=A3+unitats_paper
-                            print(A3)
-                            print(diners)
                             break
 
                         elif confirmar_compra=="no":
@@ -81,12 +81,18 @@ if codi== 101 or codi== 102:
                     elif opcio_papers=="A4":
                         print("Un paquet de A4 de 500ut costa 7,98€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=unitats_paper*7.98
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        preu=11.34
+                        preu_caixa=58.45
+                        caixa=unitats_paper//5                        
+                        caixa1=caixa*preu_caixa
+                        preu_individual=(unitats_paper-(caixa*5))*preu
+                        preu_total=preu_individual+caixa1
+                        
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
-                            diners=diners-preu
+                            diners=diners-preu_total
                             A4=A4+unitats_paper
                             break
                         elif confirmar_compra=="no":
@@ -96,12 +102,15 @@ if codi== 101 or codi== 102:
                     elif opcio_papers=="A5":
                         print("Un paquet de A5 de 500ut costa 7,13€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=unitats_paper*7.13
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        descompte=unitats_paper//4
+                        descompte1=(4*descompte)/100
+                        preunodescompte=(unitats_paper-(descompte*4))*7.13
+                        preu_total=preunodescompte+descompte1
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
                         
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
-                            diners=diners-preu
+                            diners=diners-preu_total
                             A5=A5+unitats_paper
                             break
                         elif confirmar_compra=="no":
@@ -110,11 +119,14 @@ if codi== 101 or codi== 102:
                     elif opcio_papers=="A6":
                         print("Un paquet de A6 de 500ut costa 6,45€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
-                        preu=unitats_paper*6,45
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu,2)} "))
+                        descompte=unitats_paper//4
+                        descompte1=(3*descompte)/100
+                        preunodescompte=(unitats_paper-(descompte*4))*6.45
+                        preu_total=preunodescompte+descompte1
+                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
                         if confirmar_compra=="si":
                             print("Compra realitzada amb èxit")
-                            diners=diners-preu
+                            diners=diners-preu_total
                             A6=A6+unitats_paper                          
                             break
                         elif confirmar_compra=="no":
@@ -157,7 +169,7 @@ if codi== 101 or codi== 102:
             break
     
 
-elif codi== 103 or codi==104 or codi==105:
+elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpert" or codi==105 and usuari=="Andy Bernard":
     print("""Benvingut venedor!! 
     Carregant programa...""")
     time.sleep(3)  
@@ -184,15 +196,103 @@ elif codi== 103 or codi==104 or codi==105:
                         break
                     else:
                         quantitat_vendre=int(input("Quantitat de paquets de A2 que vols vendre: "))
-                        benefici=quantitat_vendre*24.15
+                        descompte=quantitat_vendre//4
+                        descompte1=(5*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*24.15
+                        preu_total=preunodescompte+descompte1
                         confirmar_venda=str(input("Confirma la venda (si/no): "))
                         if confirmar_venda=="si":
                             print("Venda realitzada amb èxit")
-                            diners=diners+benefici
+                            diners=diners+preu_total
                             A2=A2-quantitat_vendre
                             break
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
+
+                if opcio_papers=="A3":
+                        if A3<=10:
+                            print("No hi ha suficient estoc")
+                            break
+                        else:
+                            quantitat_vendre=int(input("Quantitat de paquets de A3 que vols vendre: "))
+                            preu=13.25
+                            preu_caixa=63.95
+                            caixa=quantitat_vendre//5                        
+                            caixa1=caixa*preu_caixa
+                            preu_individual=(quantitat_vendre-(caixa*5))*preu
+                            preu_total=preu_individual+caixa1
+                        
+                            confirmar_venda=str(input("Confirma la venda (si/no): "))
+                            
+                            if confirmar_venda=="si":
+                                print("Venda realitzada amb èxit")
+                                diners=diners+preu_total
+                                A3=A3-quantitat_vendre
+                                break
+                            elif confirmar_venda=="no":
+                                print("Venda cancel·lada")
+               
+                if opcio_papers=="A4":
+                        if A3<=10:
+                            print("No hi ha suficient estoc")
+                            break
+                        else:
+                            quantitat_vendre=int(input("Quantitat de paquets de A3 que vols vendre: "))
+                            preu=9.45
+                            preu_caixa=42.95
+                            caixa=quantitat_vendre//5                        
+                            caixa1=caixa*preu_caixa
+                            preu_individual=(quantitat_vendre-(caixa*5))*preu
+                            preu_total=preu_individual+caixa1
+                        
+                            confirmar_venda=str(input("Confirma la venda (si/no): "))
+                            
+                            if confirmar_venda=="si":
+                                print("Venda realitzada amb èxit")
+                                diners=diners+preu_total
+                                A3=A3-quantitat_vendre
+                                break
+                            elif confirmar_venda=="no":
+                                print("Venda cancel·lada")
+
+                if opcio_papers=="A5":
+                    if A5<=10:
+                        print("No hi ha suficient estoc")
+                        break
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de A5 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(2*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*8.1
+                        preu_total=preunodescompte+descompte1
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            A5=A5-quantitat_vendre
+                            break
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+
+                if opcio_papers=="A6":
+                    if A6<=10:
+                        print("No hi ha suficient estoc")
+                        break
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de A6 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(1*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*7.35
+                        preu_total=preunodescompte+descompte1
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            A6=A6-quantitat_vendre
+                            break
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+               
         elif opcio==3:
             while True:
                 opcio_clients=int(input("""Que vols fer:
