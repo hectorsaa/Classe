@@ -44,28 +44,27 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
             else:
                 while True:
                     opcio_papers=str(input("Quin tipues de paper vols comprar (A2, A3, A4, A5, A6) x-tornar a la pàgina anterior: " ))
-                
+                    time.sleep(3)
                     if opcio_papers=="A2":
-                        time.sleep(3)
                         print("Un paquet de A2 de 500ut costa 18,95€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         descompte=unitats_paper//4
                         descompte1=(7*descompte)/100
                         preunodescompte=(unitats_paper-(descompte*4))*18.95
                         preu_total=preunodescompte+descompte1
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
-                        
-                        if confirmar_compra=="si":
-                            print("Compra realitzada amb èxit")
-                            diners=diners-preu_total
-                            A2=A2+unitats_paper
-                            break
-                        elif confirmar_compra=="no":
-                            print("Compra cancel·lada")
-                            break
+                        if A2+unitats_paper<100:
+                            confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
+                            if confirmar_compra=="si":
+                                print("Compra realitzada amb èxit")
+                                diners=diners-preu_total
+                                A2=A2+unitats_paper
+                            elif confirmar_compra=="no":
+                                print("Compra cancel·lada")
+                        else:
+                            print("Estàs superant el màxim de stock del magatzem")
+                            
 
                     elif opcio_papers=="A3":
-                        time.sleep(3)
                         print("Un paquet de A3 de 500ut costa 11,34€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=7.98
@@ -74,21 +73,18 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
                         caixa1=caixa*preu_caixa
                         preu_individual=(unitats_paper-(caixa*5))*preu
                         preu_total=preu_individual+caixa1
-                        
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
-                        
-                        if confirmar_compra=="si":
-                            print("Compra realitzada amb èxit")
-                            diners=diners-preu_total
-                            A3=A3+unitats_paper
-                            break
-
-                        elif confirmar_compra=="no":
-                            print("Compra cancel·lada")
-                            break
-                    
+                        if A3+unitats_paper<150:                        
+                            confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))                       
+                            if confirmar_compra=="si":
+                                print("Compra realitzada amb èxit")
+                                diners=diners-preu_total
+                                A3=A3+unitats_paper
+                            elif confirmar_compra=="no":
+                                print("Compra cancel·lada")
+                        else:
+                            print("Estàs superant el màxim de stock del magatzem")
+                                              
                     elif opcio_papers=="A4":
-                        time.sleep(3)
                         print("Un paquet de A4 de 500ut costa 7,98€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         preu=11.34
@@ -97,20 +93,18 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
                         caixa1=caixa*preu_caixa
                         preu_individual=(unitats_paper-(caixa*5))*preu
                         preu_total=preu_individual+caixa1
-                        
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
-                        
-                        if confirmar_compra=="si":
-                            print("Compra realitzada amb èxit")
-                            diners=diners-preu_total
-                            A4=A4+unitats_paper
-                            break
-                        elif confirmar_compra=="no":
-                            print("Compra cancel·lada")
-                            break
+                        if A4+unitats_paper<400:                        
+                            confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
+                            if confirmar_compra=="si":
+                                print("Compra realitzada amb èxit")
+                                diners=diners-preu_total
+                                A4=A4+unitats_paper                           
+                            elif confirmar_compra=="no":
+                                print("Compra cancel·lada")
+                        else:
+                            print("Estàs superant el màxim de stock del magatzem")
                 
                     elif opcio_papers=="A5":
-                        time.sleep(3)
                         print("Un paquet de A5 de 500ut costa 7,13€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         descompte=unitats_paper//4
@@ -118,33 +112,33 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
                         preunodescompte=(unitats_paper-(descompte*4))*7.13
                         preu_total=preunodescompte+descompte1
                         confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
-                        
-                        if confirmar_compra=="si":
-                            print("Compra realitzada amb èxit")
-                            diners=diners-preu_total
-                            A5=A5+unitats_paper
-                            break
-                        elif confirmar_compra=="no":
-                            print("Compra cancel·lada")
-                            break
+                        if A4+unitats_paper<150:                        
+                            if confirmar_compra=="si":
+                                print("Compra realitzada amb èxit")
+                                diners=diners-preu_total
+                                A5=A5+unitats_paper
+                            elif confirmar_compra=="no":
+                                print("Compra cancel·lada")
+                        else:
+                            print("Estàs superant el màxim de stock del magatzem")
+        
                     elif opcio_papers=="A6":
-                        time.sleep(3)
                         print("Un paquet de A6 de 500ut costa 6,45€")
                         unitats_paper=int(input("Quantitat de paquets que vols comprar: "))
                         descompte=unitats_paper//4
                         descompte1=(3*descompte)/100
                         preunodescompte=(unitats_paper-(descompte*4))*6.45
                         preu_total=preunodescompte+descompte1
-                        confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
-                        if confirmar_compra=="si":
-                            print("Compra realitzada amb èxit")
-                            diners=diners-preu_total
-                            A6=A6+unitats_paper                          
-                            break
-                        elif confirmar_compra=="no":
-                            print("Compra cancel·lada")
-                            break
-
+                        if A4+unitats_paper<400:                        
+                            confirmar_compra=str(input(f"Vols confirmar la compra? (si/no). Compraràs {unitats_paper} paquets i et gastaràs {round(preu_total,2)}€ "))
+                            if confirmar_compra=="si":
+                                print("Compra realitzada amb èxit")
+                                diners=diners-preu_total
+                                A6=A6+unitats_paper                          
+                            elif confirmar_compra=="no":
+                                print("Compra cancel·lada")
+                        else:
+                            print("Estàs superant el màxim de stock del magatzem")
                     elif opcio_papers=="x":
                         print("Tornant a l'inici")
                         time.sleep(3)
@@ -207,10 +201,10 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
         elif opcio==2:
             while True:
                 opcio_papers=str(input("Quin tipues de papeers vols vendre (A2, A3, A4, A5, A6)   x-Tornar a la pàgina anterior " ))
-                time.sleep(3)
+                time.sleep(2)
                 
                 if opcio_papers=="A2":
-                    if A2<=10:
+                    if A2<=20:
                         print("No hi ha suficient estoc")
                         break
                     else:
@@ -219,19 +213,21 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                         descompte1=(5*descompte)/100
                         preunodescompte=(quantitat_vendre-(descompte*4))*24.15
                         preu_total=preunodescompte+descompte1
-                        confirmar_venda=str(input("Confirma la venda (si/no): "))
-                        if confirmar_venda=="si":
-                            print("Venda realitzada amb èxit")
-                            diners=diners+preu_total
-                            A2=A2-quantitat_vendre
-                            volum_vendas.append(preu_total)
-                            paper_venutA2.append(quantitat_vendre)
-                            break
-                        elif confirmar_venda=="no":
-                            print("Venda cancel·lada")
+                        
+                        if quantitat_vendre>=20:
+                            confirmar_venda=str(input("Confirma la venda (si/no): "))
+                            if confirmar_venda=="si":
+                                print("Venda realitzada amb èxit")
+                                diners=diners+preu_total
+                                A2=A2-quantitat_vendre
+                                volum_vendas.append(preu_total)
+                                paper_venutA2.append(quantitat_vendre)
+                                break
+                            elif confirmar_venda=="no":
+                                print("Venda cancel·lada")
 
                 if opcio_papers=="A3":
-                        if A3<=10:
+                        if A3<=30:
                             print("No hi ha suficient estoc")
                             break
                         else:
@@ -243,45 +239,44 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             preu_individual=(quantitat_vendre-(caixa*5))*preu
                             preu_total=preu_individual+caixa1
                         
-                            confirmar_venda=str(input("Confirma la venda (si/no): "))
-                            
-                            if confirmar_venda=="si":
-                                print("Venda realitzada amb èxit")
-                                diners=diners+preu_total
-                                A3=A3-quantitat_vendre
-                                volum_vendas.append(preu_total)
-                                paper_venutA3.append(quantitat_vendre)
-                                break
-                            elif confirmar_venda=="no":
-                                print("Venda cancel·lada")
-               
+                            if quantitat_vendre>=30:
+                                confirmar_venda=str(input("Confirma la venda (si/no): "))
+                                if confirmar_venda=="si":
+                                    print("Venda realitzada amb èxit")
+                                    diners=diners+preu_total
+                                    A3=A3-quantitat_vendre
+                                    volum_vendas.append(preu_total)
+                                    paper_venutA3.append(quantitat_vendre)
+                                    break
+                                elif confirmar_venda=="no":
+                                    print("Venda cancel·lada")
+                            else:
+                                print("No pots vendre menys de 30 paquets/caixes de A3")
                 if opcio_papers=="A4":
-                        if A3<=10:
+                        if A3<=100:
                             print("No hi ha suficient estoc")
                             break
                         else:
-                            quantitat_vendre=int(input("Quantitat de paquets de A3 que vols vendre: "))
+                            quantitat_vendre=int(input("Quantitat de paquets de A4 que vols vendre: "))
                             preu=9.45
                             preu_caixa=42.95
                             caixa=quantitat_vendre//5                        
                             caixa1=caixa*preu_caixa
                             preu_individual=(quantitat_vendre-(caixa*5))*preu
-                            preu_total=preu_individual+caixa1
-                        
+                            preu_total=preu_individual+caixa1                                         
                             confirmar_venda=str(input("Confirma la venda (si/no): "))
-                            
                             if confirmar_venda=="si":
                                 print("Venda realitzada amb èxit")
                                 diners=diners+preu_total
                                 A3=A3-quantitat_vendre
                                 volum_vendas.append(preu_total)
                                 paper_venutA4.append(quantitat_vendre)
-                                break
+
                             elif confirmar_venda=="no":
                                 print("Venda cancel·lada")
-
+                            
                 if opcio_papers=="A5":
-                    if A5<=10:
+                    if A5<=50:
                         print("No hi ha suficient estoc")
                         break
                     else:
@@ -297,12 +292,11 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             A5=A5-quantitat_vendre
                             volum_vendas.append(preu_total)
                             paper_venutA5.append(quantitat_vendre)
-                            break
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
 
                 if opcio_papers=="A6":
-                    if A6<=10:
+                    if A6<=60:
                         print("No hi ha suficient estoc")
                         break
                     else:
@@ -318,9 +312,11 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             A6=A6-quantitat_vendre
                             volum_vendas.append(preu_total)
                             paper_venutA6.append(quantitat_vendre)
-                            break
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
+                if opcio_papers=="x":
+                    print("Tornant a la pàgina anterior")
+                    break
                
         elif opcio==3:
             while True:
@@ -355,12 +351,10 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
             print(f"La empresesa ha venut aquesta quantitat de paquets de A5: {paper_venutA5}")
             print(f"La empresesa ha venut aquesta quantitat de paquets de A6: {paper_venutA6}")
             print(f"i en total ha venut {ventas_total}")
-            break
         elif opcio==5:
             benefici_total=sum(volum_vendas)
             print(f"La empresa ha guanyat {volum_vendas} en cada compra")
             print(f"i en total ha guanyat {benefici_total}")
-            break
         elif opcio==6:
             print("Tancant programa ...")
             time.slepp(4)
