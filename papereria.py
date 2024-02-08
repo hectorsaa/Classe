@@ -2,15 +2,28 @@ import time
 
 clients_compra=['paper corporation','WestRock','UPM']
 clients_venta=['El Corte Ingles','La Sol papereria','Amazon']
-volum_vendas=[]
+volum_vendassobres=[]
+volum_venda=[]
 paper_venutA2=[]
 paper_venutA3=[]
 paper_venutA4=[]
 paper_venutA5=[]
 paper_venutA6=[]
 
+sobres_venutC2=[]
+sobres_venutC3=[]
+sobres_venutC4=[]
+sobres_venutC5=[]
+sobres_venutC6=[]
+
 usuari=str(input("Introdueix nom d'usuari: "))
 codi=int(input("Introdueix el teu codi: "))
+
+C2=50
+C3=50
+C4=50
+C5=50
+C6=50
 
 A2=50
 A3=50
@@ -26,9 +39,10 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
     while True:
         opcio=int(input("""Que vol fer?
                         1-Consultar diners de la empresa
-                        2-Comprar 
-                        3-Consultar clients
-                        4-Tancar programa
+                        2-Comprar paper
+                        3-comprar sobres
+                        4-Consultar clients
+                        5-Tancar programa
                         """))
         if opcio==1:
             time.sleep(3)
@@ -143,7 +157,7 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
                         time.sleep(3)
                         break
         
-        elif opcio ==3:           
+        elif opcio ==4:           
             time.sleep(3)
             while True:
                 opcio_clients=int(input("""Que vols fer:
@@ -170,7 +184,7 @@ if codi== 101 and usuari=="Stanley Hudson" or codi== 102 and usuari=="Angela Mar
                     time.sleep(3)
                     break
             
-        elif opcio==4:
+        elif opcio==5:
             print("Tancant programa ...")
             time.sleep(3)
             break
@@ -182,12 +196,13 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
     time.sleep(3)  
     while True:
         opcio=int(input("""Que vol fer?
-                        1-Consultar paquets de paper en el magatzem 
-                        2-Vendre 
-                        3-Consultar clients
-                        4-Paper venut
-                        5-Volum vendas
-                        6-Tancar programa
+                        1-Consultar el magatzem 
+                        2-Vendre paper
+                        3-vendre sobres
+                        4-Consultar clients
+                        5-Paper venut
+                        6-Volum vendas
+                        7-Tancar programa
                         """))
         if opcio==1:
             print(f"La empresa té al magatzem {A2} paquets de A2")
@@ -217,9 +232,9 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             print("Venda realitzada amb èxit")
                             diners=diners+preu_total
                             A2=A2-quantitat_vendre
-                            volum_vendas.append(preu_total)
+                            volum_venda.append(preu_total)
                             paper_venutA2.append(quantitat_vendre)
-                            break
+                            
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
 
@@ -241,7 +256,7 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                                 print("Venda realitzada amb èxit")
                                 diners=diners+preu_total
                                 A3=A3-quantitat_vendre
-                                volum_vendas.append(preu_total)
+                                volum_venda.append(preu_total)
                                 paper_venutA3.append(quantitat_vendre)
 
                             elif confirmar_venda=="no":
@@ -264,7 +279,7 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                                 print("Venda realitzada amb èxit")
                                 diners=diners+preu_total
                                 A3=A3-quantitat_vendre
-                                volum_vendas.append(preu_total)
+                                volum_venda.append(preu_total)
                                 paper_venutA4.append(quantitat_vendre)
 
                             elif confirmar_venda=="no":
@@ -285,7 +300,7 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             print("Venda realitzada amb èxit")
                             diners=diners+preu_total
                             A5=A5-quantitat_vendre
-                            volum_vendas.append(preu_total)
+                            volum_venda.append(preu_total)
                             paper_venutA5.append(quantitat_vendre)
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
@@ -305,7 +320,7 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                             print("Venda realitzada amb èxit")
                             diners=diners+preu_total
                             A6=A6-quantitat_vendre
-                            volum_vendas.append(preu_total)
+                            volum_venda.append(preu_total)
                             paper_venutA6.append(quantitat_vendre)
                         elif confirmar_venda=="no":
                             print("Venda cancel·lada")
@@ -314,6 +329,123 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                     break
                
         elif opcio==3:
+             while True:
+                opcio_sobres=str(input("Quin tipues de sobres vols vendre (C2, C3, C4, C5, C6)   x-Tornar a la pàgina anterior " ))
+                time.sleep(2)
+                if opcio_sobres=="C2":
+                    if C2<=20:
+                     print("No hi ha suficient estoc")
+                                        
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de C2 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(5*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*36.45
+                        preu_total=preunodescompte+descompte1
+                            
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            C2=C2-quantitat_vendre
+                            volum_vendassobres.append(preu_total)
+                            sobres_venutC2.append(quantitat_vendre)
+                            
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+   
+                if opcio_sobres=="C3":
+                    if C3<=30:
+                        print("No hi ha suficient estoc")
+                                                            
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de C2 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(4*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*32.68
+                        preu_total=preunodescompte+descompte1
+                                            
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            C3=C3-quantitat_vendre
+                            volum_vendassobres.append(preu_total)
+                            sobres_venutC3.append(quantitat_vendre)
+                                                
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+                
+                if opcio_sobres=="C4":     
+                    if C4<=60:
+                        print("No hi ha suficient estoc")
+                                                            
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de C2 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(3*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*26.74
+                        preu_total=preunodescompte+descompte1
+                                            
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            C4=C4-quantitat_vendre
+                            volum_vendassobres.append(preu_total)
+                            sobres_venutC4.append(quantitat_vendre)
+                                            
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")
+                
+                if opcio_sobres=="C5":     
+                    if C5<=40:
+                        print("No hi ha suficient estoc")
+                                                            
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de C2 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(2*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*22.95
+                        preu_total=preunodescompte+descompte1
+                                            
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            C5=C5-quantitat_vendre
+                            volum_vendassobres.append(preu_total)
+                            sobres_venutC5.append(quantitat_vendre)
+                                            
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada")   
+                
+                if opcio_sobres=="C6":     
+                    if C6<=100:
+                        print("No hi ha suficient estoc")
+                                                            
+                    else:
+                        quantitat_vendre=int(input("Quantitat de paquets de C2 que vols vendre: "))
+                        descompte=quantitat_vendre//4
+                        descompte1=(1*descompte)/100
+                        preunodescompte=(quantitat_vendre-(descompte*4))*17.15
+                        preu_total=preunodescompte+descompte1
+                                            
+                        confirmar_venda=str(input("Confirma la venda (si/no): "))
+                        if confirmar_venda=="si":
+                            print("Venda realitzada amb èxit")
+                            diners=diners+preu_total
+                            C6=C6-quantitat_vendre
+                            volum_vendassobres.append(preu_total)
+                            sobres_venutC6.append(quantitat_vendre)
+                                            
+                        elif confirmar_venda=="no":
+                            print("Venda cancel·lada") 
+                
+                if opcio_sobres=="x":
+                    print("Tornant a la pàgina anterior")
+                    break                
+        elif opcio==4:
             while True:
                 opcio_clients=int(input("""Que vols fer:
                                         1-Veure clients
@@ -338,19 +470,31 @@ elif codi== 103 and usuari=="Dwight Schrute" or codi==104 and usuari=="Jim Halpe
                     time.sleep(3)
                     break
             
-        elif opcio==4:
-            ventas_total=sum(paper_venutA2)+sum(paper_venutA3)+sum(paper_venutA4)+sum(paper_venutA5)+sum(paper_venutA6)            
-            print(f"La empresesa ha venut aquesta quantitat de paquets de A2: {paper_venutA2}")
-            print(f"La empresesa ha venut aquesta quantitat de paquets de A3: {paper_venutA3}")
-            print(f"La empresesa ha venut aquesta quantitat de paquets de A4: {paper_venutA4}")
-            print(f"La empresesa ha venut aquesta quantitat de paquets de A5: {paper_venutA5}")
-            print(f"La empresesa ha venut aquesta quantitat de paquets de A6: {paper_venutA6}")
-            print(f"i en total ha venut {ventas_total}")
         elif opcio==5:
-            benefici_total=sum(volum_vendas)
-            print(f"La empresa ha guanyat {volum_vendas} en cada compra")
-            print(f"i en total ha guanyat {benefici_total}")
+            ventas_total=sum(paper_venutA2)+sum(paper_venutA3)+sum(paper_venutA4)+sum(paper_venutA5)+sum(paper_venutA6)            
+            print(f"La empresesa ha venut aquesta quantitat de paquets de A2: {sum(paper_venutA2)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de A3: {sum(paper_venutA3)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de A4: {sum(paper_venutA4)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de A5: {sum(paper_venutA5)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de A6: {sum(paper_venutA6)}")
+            print(f"i en total ha venut {ventas_total} paquets")
+            
+            ventas_totalso=sum(sobres_venutC2)+sum(sobres_venutC3)+sum(sobres_venutC4)+sum(sobres_venutC5)+sum(sobres_venutC6)            
+            print(f"La empresesa ha venut aquesta quantitat de paquets de C2: {sum(sobres_venutC2)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de C3: {sum(sobres_venutC3)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de C4: {sum(sobres_venutC4)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de C5: {sum(sobres_venutC5)}")
+            print(f"La empresesa ha venut aquesta quantitat de paquets de C6: {sum(sobres_venutC6)}")
+            print(f"i en total ha venut {ventas_totalso} paquets")
         elif opcio==6:
+            benefici_totalso=sum(volum_vendassobres)
+            print(f"La empresa ha guanyat {volum_vendassobres} en cada venda de sobres")
+            print(f"i en total ha guanyat {benefici_totalso}")
+
+            benefici_total=sum(volum_venda)
+            print(f"La empresa ha guanyat {volum_venda} en cada venda de sobres")
+            print(f"i en total ha guanyat {benefici_total}")
+        elif opcio==7:
             print("Tancant programa ...")
             time.slepp(4)
             break
