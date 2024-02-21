@@ -1,8 +1,12 @@
 html {
-    background-color: green;
+    background-color: rgba(18, 81, 218, 0.705);
     font-size: 20px;
   }
-  
+
+.textcentral {
+  display: flex;
+}
+
   ul {
     background: red;
     padding: 10px;
