@@ -1,0 +1,48 @@
+body {
+    font-size: larger;
+    font-family: monospace;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.titling {
+    padding: 3vh;
+    margin-top: 3vh;
+}
+
+.indexlist {
+    width: 25%;
+    margin: auto;
+    text-align: left;
+}
+
+.main-blocks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3vh;
+}
+
+.main-block {
+    width: 30%;
+    padding: 2vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+    margin-bottom: 3vh;
+}
+
+footer {
+    margin-top: 3vh;
+    padding: 3vh;
+    border-top: 1px solid black;
+}
+
+
+img {
+    width: 100%;
+}
+
+video {
+    width: 100%;
+}
