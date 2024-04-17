@@ -10,3 +10,14 @@ em{color: rgba(255, 0, 0, 0.664);}
 a:link {color: pink;}
 a:visited {color: green;}
 a:hover {text-decoration: none;}
+
+.box{background-color: black; color: red;
+border-radius: 30px; border-width: medium; border-style: solid;}    
+
+.b{background: rgb(34,193,195);
+    background: linear-gradient(254deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+color: blueviolet;}
+
+.a{background-image: url(venus.jpg);}
+
+h2{color: red; font-size: 40px; font-family: fantasy;}
